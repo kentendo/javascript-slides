@@ -1,0 +1,84 @@
+
+$info-color: #eef;
+$good-color: #dfd;
+$bad-color:  #fee;
+
+body { 
+  font-size: 30px;
+}
+
+h1, h2, h3{ 
+  margin-top:0;
+}
+
+h1 { 
+  font-size: 80px;
+}
+
+h2 { 
+  font-size: 60px;
+}
+
+h3 { 
+  font-size: 40px;
+}
+
+ul {
+  
+  padding:0;
+  
+  li {
+    list-style-position: inside;
+  }
+}
+
+code {
+  
+  font-size:40px;
+  padding:20px;
+  margin:5px;
+  display:inline-block;
+  color: #000;
+  background-color: $info-color;
+  white-space: pre;
+  text-align:left;
+  
+  .medium {
+    font-size:33px;
+    padding:15px;
+  }
+
+  .small {
+    font-size:25px;
+    padding:10px;
+  }
+
+  .good {
+    background-color: $good-color;
+  }
+
+  .bad {
+    background-color: $bad-color;
+  }
+}
+
+.slide {
+  text-align:center;
+}
+
+.glyphicon { 
+  
+  vertical-align:middle;
+  
+  .big {
+    font-size: 80px;
+  }
+  
+  .medium {
+    font-size: 60px;
+  }
+  
+  .small {
+    font-size: 40px;
+  }
+}
