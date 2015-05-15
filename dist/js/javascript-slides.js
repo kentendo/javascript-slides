@@ -1,6 +1,6 @@
 /*! javascript-slides - v0.1.0 - 2015-05-14
 * Copyright (c) 2015 ; Licensed  */
-var app = angular.module('learningfuze.lesson', ['ngAnimate', 'ngRoute']);
+angular.module('learningfuze.lesson', ['ngAnimate', 'ngRoute']);
 
 // slideshow
 angular.module('learningfuze.lesson').directive('slideshow', ['$window', '$document', '$route', '$routeParams', function($window, $document, $route, $routeParams){
@@ -8,11 +8,14 @@ angular.module('learningfuze.lesson').directive('slideshow', ['$window', '$docum
     restrict: 'E',
     replace:true,
     transclude:true,
-    template:'<div ng-transclude></div>',
-    link: function(scope, element, attr){
+    template:'<div class="slideshow" ng-transclude></div>',
+    link: function(scope, element){
+      
+      console.log($route);
+      console.log($routeParams);
       
       element.css({
-        display:'table'
+        //display:'table'
       });
       
       // this will disable scrollbars
@@ -73,7 +76,7 @@ angular.module('learningfuze.lesson').directive('slide', ['$window', function($w
     require:'^slideshow',
     transclude:true,
     replace:true,
-    template:'<div style="display:none; vertical-align:middle" class="slide" ng-transclude></div>',
+    template:'<div class="slide" ng-transclude></div>',
     link:function(scope, element, attr, slideshow){
       
       // full size
@@ -102,7 +105,7 @@ angular.module('learningfuze.lesson').directive('slide', ['$window', function($w
 angular.module('learningfuze.lesson').directive('counter', function(){
   return {
     restrict:'E',
-    link: function(scope, element, attr){
+    link: function(scope, element){
       element.css({
         position:'absolute',
         bottom:'10px',

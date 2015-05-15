@@ -60,7 +60,7 @@ module.exports = function(grunt) {
       },
       target: {
         files: {
-          'dist/css/javascript-slides.css.min': ['dist/css/javascript-slides.css']
+          'dist/css/javascript-slides.min.css': ['dist/css/javascript-slides.css']
         }
       }
     },
@@ -78,8 +78,12 @@ module.exports = function(grunt) {
         boss: true,
         eqnull: true,
         browser: true,
-        globals: {}
+        globals: {
+          angular:true,
+          console:true
+        }
       },
+      
       gruntfile: {
         src: 'Gruntfile.js'
       },
@@ -92,9 +96,13 @@ module.exports = function(grunt) {
         files: '<%= jshint.gruntfile.src %>',
         tasks: ['jshint:gruntfile']
       },
-      src_test: {
+      js_test: {
         files: '<%= jshint.src_test.src %>',
-        tasks: ['jshint:src_test', 'qunit']
+        tasks: ['jshint:src_test', 'htmlmin', 'concat', 'uglify']
+      },
+      css_test: {
+        files: 'src/css/styles.css',
+        tasks: ['sass', 'cssmin']
       }
     }
   });
@@ -109,7 +117,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
-  grunt.registerTask('default', ['htmlmin', 'sass', 'concat', 'cssmin', 'uglify']);
-  grunt.registerTask('sass-css', ['sass']);
-
+  grunt.registerTask('default', ['jshint', 'htmlmin', 'sass', 'concat', 'cssmin', 'uglify', 'watch']);
+  
 };
