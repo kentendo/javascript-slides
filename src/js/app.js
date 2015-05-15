@@ -1,23 +1,18 @@
 angular.module('learningfuze.lesson', ['ngAnimate', 'ngRoute']);
 
 // slideshow
-angular.module('learningfuze.lesson').directive('slideshow', ['$window', '$document', '$route', '$routeParams', function($window, $document, $route, $routeParams){
+angular.module('learningfuze.lesson').directive('slideshow', ['$window', '$document', function($window, $document){
   return {
     restrict: 'E',
     replace:true,
     transclude:true,
     template:'<div class="slideshow" ng-transclude></div>',
     link: function(scope, element){
-      
-      console.log($route);
-      console.log($routeParams);
-      
-      element.css({
-        //display:'table'
-      });
-      
+            
       // this will disable scrollbars
       $document[0].body.style.overflow = 'hidden';
+      
+      element.css({display:'table'});
       
       // watch for arrow keys
       var w = angular.element($window);
@@ -39,12 +34,12 @@ angular.module('learningfuze.lesson').directive('slideshow', ['$window', '$docum
         } 
       });
     },
-    controller: function($scope) {
+    controller: function($scope, $location) {      
       
-      $scope.index = 0;
+      $scope.index = (parseInt($location.path().substr(1, 1))) || 0;
       $scope.slides = [];
-      $scope.$watch('index', function(newIndex, oldIndex){ 
-                    
+      $scope.$watch('index', function(newIndex, oldIndex){
+        $location.path('/' + newIndex);
         $scope.slides[oldIndex].css({display:'none'});        
         $scope.slides[newIndex].css({display:'table-cell'});
         
@@ -63,6 +58,7 @@ angular.module('learningfuze.lesson').directive('slideshow', ['$window', '$docum
       this.addSlide = function(slide){
         $scope.slides.push(slide);
       };
+      
     }
   };
 }]);
@@ -76,18 +72,19 @@ angular.module('learningfuze.lesson').directive('slide', ['$window', function($w
     replace:true,
     template:'<div class="slide" ng-transclude></div>',
     link:function(scope, element, attr, slideshow){
+            
+      element.css({
+        display:'none',
+        verticalAlign:'middle'
+      });
       
       // full size
       scope.resize = function(){
-        
-        alert('resize');
-        
         element.css({
-          width:$window.innerWidth,
-          minWidth:$window.innerWidth,
-          height:$window.innerHeight,
-          minHeight:$window.innerHeight,
-          display:'none'
+          width:$window.innerWidth + 'px',
+          minWidth:$window.innerWidth + 'px',
+          height:$window.innerHeight + 'px',
+          minHeight:$window.innerHeight + 'px'
         });
       };
       

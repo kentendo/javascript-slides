@@ -1,7 +1,8 @@
-/*! javascript-slides - v0.1.0 - 2015-05-14
+/*! javascript-slides - v0.1.0 - 2015-05-15
 * Copyright (c) 2015 ; Licensed  */
 body {
-  font-size: 30px; }
+  font-size: 30px;
+  text-align: center; }
 
 h1, h2, h3 {
   margin-top: 0; }
@@ -27,27 +28,23 @@ code {
   display: inline-block;
   color: #000;
   background-color: #eef;
-  white-space: pre;
   text-align: left; }
-  code .medium {
-    font-size: 33px;
-    padding: 15px; }
-  code .small {
+  code.small {
     font-size: 25px;
     padding: 10px; }
-  code .good {
+  code.medium {
+    font-size: 33px;
+    padding: 15px; }
+  code.good {
     background-color: #dfd; }
-  code .bad {
+  code.bad {
     background-color: #fee; }
-
-.slide {
-  text-align: center; }
 
 .glyphicon {
   vertical-align: middle; }
-  .glyphicon .big {
+  .glyphicon.big {
     font-size: 80px; }
-  .glyphicon .medium {
+  .glyphicon.medium {
     font-size: 60px; }
-  .glyphicon .small {
+  .glyphicon.small {
     font-size: 40px; }

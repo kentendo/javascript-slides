@@ -105,7 +105,7 @@ module.exports = function(grunt) {
         tasks: ['jshint:src_test', 'htmlmin', 'concat', 'uglify']
       },
       css_test: {
-        files: 'src/css/styles.css',
+        files: 'src/css/*',
         tasks: ['sass', 'cssmin']
       }
     }
