@@ -1,6 +1,6 @@
 /*! javascript-slides - v0.1.0 - 2015-05-15
 * Copyright (c) 2015 ; Licensed  */
-angular.module('learningfuze.lesson', ['ngAnimate', 'ngRoute']);
+angular.module('learningfuze.lesson', ['ngAnimate', 'ngRoute', 'ngTouch']);
 
 // slideshow
 angular.module('learningfuze.lesson').directive('slideshow', ['$window', '$document', function($window, $document){
@@ -14,6 +14,7 @@ angular.module('learningfuze.lesson').directive('slideshow', ['$window', '$docum
       // this will disable scrollbars
       $document[0].body.style.overflow = 'hidden';
       
+      // for vertical alignment
       element.css({display:'table'});
       
       // watch for arrow keys
@@ -38,6 +39,7 @@ angular.module('learningfuze.lesson').directive('slideshow', ['$window', '$docum
     },
     controller: function($scope, $location) {      
       
+      // if we can parse a integer out of the path, great, or else slide index  = 0
       $scope.index = (parseInt($location.path().substr(1, 1))) || 0;
       $scope.slides = [];
       $scope.$watch('index', function(newIndex, oldIndex){
@@ -74,7 +76,8 @@ angular.module('learningfuze.lesson').directive('slide', ['$window', function($w
     replace:true,
     template:'<div class="slide" ng-transclude></div>',
     link:function(scope, element, attr, slideshow){
-            
+      
+      // hide the slide and vertically center the content
       element.css({
         display:'none',
         verticalAlign:'middle'
@@ -103,6 +106,7 @@ angular.module('learningfuze.lesson').directive('slide', ['$window', function($w
   };
 }]);
 
+// this is a counter in the bottom left corner
 angular.module('learningfuze.lesson').directive('counter', function(){
   return {
     restrict:'E',

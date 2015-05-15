@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/javascript-slides.min.css"/>
   </head>
   <body>
-    <slideshow>
+    <slideshow ng-swipe-left="down()" ng-swipe-right="up()">
       <counter ng-cloak>{{index+1}}/{{slides.length}}</counter>
       <slide>
         <h1>Introduction</h1>
@@ -598,6 +598,7 @@ for(var i in teacher){<br>
     <script type="text/javascript" src="lib/angular/angular.min.js"></script>
     <script type="text/javascript" src="lib/angular-animate/angular-animate.min.js"></script>
     <script type="text/javascript" src="lib/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="lib/angular-touch/angular-touch.min.js"></script>
     <script type="text/javascript" src="js/javascript-slides.min.js"></script>
   </body>
 </html>
