@@ -81,11 +81,15 @@ angular.module('learningfuze.lesson').directive('slide', ['$window', function($w
       
       // full size
       scope.resize = function(){
+        
+        alert('resize');
+        
         element.css({
           width:$window.innerWidth,
           minWidth:$window.innerWidth,
           height:$window.innerHeight,
-          minHeight:$window.innerHeight
+          minHeight:$window.innerHeight,
+          display:'none'
         });
       };
       

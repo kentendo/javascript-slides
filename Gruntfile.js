@@ -37,6 +37,9 @@ module.exports = function(grunt) {
       }
     },
     sass: {
+      options:{
+        sourcemap:'none'
+      },
       dist: {
         files: {
           'src/css/styles.css': 'src/css/styles.scss'
@@ -79,6 +82,7 @@ module.exports = function(grunt) {
         eqnull: true,
         browser: true,
         globals: {
+          alert:true,
           angular:true,
           console:true
         }
