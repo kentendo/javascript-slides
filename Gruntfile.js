@@ -106,7 +106,7 @@ module.exports = function(grunt) {
       },
       css_test: {
         files: 'src/css/*',
-        tasks: ['sass', 'cssmin']
+        tasks: ['htmlmin', 'sass', 'concat', 'cssmin']
       }
     }
   });

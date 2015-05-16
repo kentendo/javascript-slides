@@ -38,13 +38,12 @@ angular.module('learningfuze.lesson').directive('slideshow', ['$window', '$docum
     controller: function($scope, $location) {      
       
       // if we can parse a integer out of the path, great, or else slide index  = 0
-      $scope.index = (parseInt($location.path().substr(1, 1))) || 0;
+      $scope.index = (parseInt($location.path().substring(1))) || 0;
       $scope.slides = [];
       $scope.$watch('index', function(newIndex, oldIndex){
         $location.path('/' + newIndex);
-        $scope.slides[oldIndex].css({display:'none'});        
-        $scope.slides[newIndex].css({display:'table-cell'});
-        
+        $scope.slides[oldIndex].css({display:'none'}).removeClass('active');        
+        $scope.slides[newIndex].css({display:'table-cell'}).addClass('active');
       });
 
       $scope.up = function(){
@@ -91,7 +90,7 @@ angular.module('learningfuze.lesson').directive('slide', ['$window', function($w
         });
       };
       
-      // add window.resize so they stay full size
+      // bind to window.resize just in case
       var w = angular.element($window);
       w.bind("resize", scope.resize);
       
