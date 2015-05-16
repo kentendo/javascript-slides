@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/javascript-slides.min.css"/>
   </head>
-  <body>
+  <body ng-cloak>
     <slideshow ng-swipe-left="up()" ng-swipe-right="down()">
       <counter ng-cloak>{{index+1}}/{{slides.length}}</counter>
       <slide>
