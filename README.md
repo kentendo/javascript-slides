@@ -1,6 +1,8 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+You can view the slides here...
+
+http://www.kennycosca.com/javascript/slides/
 
 ### What is this repository for? ###
 
